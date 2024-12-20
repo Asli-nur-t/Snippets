@@ -1,0 +1,235 @@
+{
+
+	"Created By": {
+		"prefix": "aa",
+		"body": [
+		  "// Created by https://github.com/Asli-nur-t",
+		  "// Date: ${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}",
+		  "\t$2"
+		],
+		"description": "Author"
+	  },
+
+	"Singleton Lazy": {
+		"scope": "dart",
+		"prefix": "aaLazySingleton",
+		"body": [
+			"class $name {",
+			"static $name _instance;",
+			"static $name get instance {",
+			"if (_instance == null) _instance = $name._init();",
+			"return _instance;",
+			"}",
+			"$name._init();",
+			"}"
+		],
+		"description": "Lazy Singleton"
+	},
+	"Singleton Eager": {
+		"scope": "dart",
+		"prefix": "aaEagerSingleton",
+		"body": [
+			"class $name {",
+			"static $name _instance = $name._init();",
+			"static $name get instance => _instance;",
+			"$name._init();",
+			"}"
+		],
+		"description": "Eager Singleton"
+	},
+	"DartFrame": {
+		"prefix": "aaFrame",
+		"body": [
+			"",
+			"//Created by https://github.com/Asli-nur-t ",
+			"",
+			"import 'package:flutter/material.dart';",
+			"",
+			"class ${ClassName}Frame extends BaseFrame<${ClassName}ViewModel> {",
+			"  ${ClassName}Frame({Key? key, Object? arg}) ",
+			"    : super.model(getIt.get<${ClassName}ViewModel>(), key: key, arguments: arg);",
+			"",
+			"  @override",
+			"  createState() => _${ClassName}FrameState();",
+			"}",
+			"",
+			"class _${ClassName}FrameState extends BaseFrameState<${ClassName}Frame, ${ClassName}ViewModel> {",
+			"  _${ClassName}FrameState() : super(getIt.get<${ClassName}ViewModel>());",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"        return Center(child: Text('${ClassName}'));",
+			"  }",
+			"}"
+		],
+		"description": "DartFrame"
+	},
+	"DartScreen": {
+		"prefix": "aaScreen",
+		"body": [
+			"",
+			"//Created by https://github.com/Asli-nur-t",
+			"",
+			"import 'package:flutter/material.dart';",
+			"import 'package:flutter_mobx/flutter_mobx.dart';",
+			"",
+			"class ${ClassName}Screen extends BaseScreen<${ClassName}ViewModel> {",
+			"  ${ClassName}Screen({Key? key, Object? arg}) ",
+			"    : super.model(getIt.get<${ClassName}ViewModel>(), key: key, arguments: arg);",
+			"",
+			"  @override",
+			"  createState() => _${ClassName}ScreenState();",
+			"}",
+			"",
+			"class _${ClassName}ScreenState extends BaseScreenState<${ClassName}Screen, ${ClassName}ViewModel> {",
+			"  _${ClassName}ScreenState() : super(getIt.get<${ClassName}ViewModel>());",
+			"",
+			"  @override",
+			"  Widget build(BuildContext context) {",
+			"    return Scaffold();",
+			"  }",
+			"}"
+		],
+		"description": "DartScreen"
+	},
+	"DartViewModel": {
+		"prefix": "aaViewModel",
+		"body": [
+			"",
+			"//Created by https://github.com/Asli-nur-t",
+			"",
+			"import 'package:injectable/injectable.dart';",
+			"import 'package:mobx/mobx.dart';",
+			"",
+			"part '${class_name}_view_model.g.dart';",
+			"",
+			"@injectable",
+			"class ${ClassName}ViewModel = ${ClassName}ViewModelBase with _$${ClassName}ViewModel;",
+			"",
+			"abstract class ${ClassName}ViewModelBase extends BaseViewModel with Store {",
+			"  @observable",
+			"  String text = \"EmptyText\";",
+			"",
+			"  @action",
+			"  void updateText() {",
+			"    text = \"New Txt\";",
+			"  }",
+			"}"
+		],
+		"description": "DartViewModel"
+	},
+	"DartNewFile": {
+		"prefix": "aaCreate",
+		"body": [
+			"",
+			"//Created by https://github.com/Asli-nur-t",
+			"",
+			"",
+		],
+		"description": "DartNewFile"
+	},
+	"Column": {
+		"prefix": "aaColumn",
+		"body": [
+			"Column(",
+			"children:[],",
+			"),",
+		],
+		"description": "FlutterColumn"
+	},
+	"Row": {
+		"prefix": "aaRow",
+		"body": [
+			"Row(",
+			"children:[],",
+			"),",
+		],
+		"description": "FlutterRow"
+	},
+	"Expanded": {
+		"prefix": "aaExpanded",
+		"body": [
+			"Expanded(",
+			"flex:1,",
+			"child:",
+			"),",
+		],
+		"description": "FlutterRow"
+	},
+	"RichText": {
+		"prefix": "aaRichText",
+		"body": [
+			"RichText(",
+			"text: TextSpan(",
+			"children: [",
+			"TextSpan(text: ''),",
+			"],),),"
+		],
+		"description": "FlutterRow"
+	},
+	"LayoutBuilder": {
+		"prefix": "aaLayoutBuilder",
+		"body": [
+			"LayoutBuilder(",
+			"   builder: (context, constraints) => SafeArea(",
+			"  child: SingleChildScrollView(",
+			"physics: const BouncingScrollPhysics(),",
+			" child: ConstrainedBox(",
+			"constraints: BoxConstraints(minWidth: constraints.maxWidth, minHeight: constraints.maxHeight),",
+			" child: IntrinsicHeight(",
+			"  child: Column(",
+			"children: []",
+			"   ),",
+			"   ),",
+			"   ),",
+			"   ),",
+			"   ),",
+			"  );"
+		]
+	},"DartViewEvent": {
+		"prefix": "aaViewEvent",
+		"body": [
+			"",
+			"//https://github.com/Asli-nur-t",
+			"",
+			"import 'package:cikmaburada/app/core/markers/view_event.dart';",
+			"",
+			"abstract class ${ClassName}ViewEvent extends ViewEvent{",
+			"",
+			"factory ${ClassName}ViewEvent.${MethodName}() => ${EventName}();",
+			"}",
+			"class ${EventName} implements ${ClassName}ViewEvent {}",
+		],
+		"description": "DartViewEvent"
+	},"DartViewEventMethod": {
+		"prefix": "aaViewEventMethod",
+		"body": [
+			"",
+			"@override",
+			"onViewEvent(ViewEvent viewEvent) {",
+			  "switch (viewEvent.runtimeType) {",
+				"case ${ViewEventName}:",
+				"  const ${EventName}(",
+					"context",
+					");",
+				    "break;",
+				"default:",
+				"  super.onViewEvent(viewEvent);",
+				"}",
+			"}",
+			"",
+		],
+		"description": "DartViewEvent"
+	},"initStateMethod": {
+		"prefix": "aainitState",
+		"body": [
+			"",
+			"@override",
+			"Future<void> viewInitState() {",
+				"return super.viewInitState();",
+			"}",
+			"",
+		],
+		"description": "DartViewEvent"
+	}
+}
